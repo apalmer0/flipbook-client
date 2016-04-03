@@ -1,0 +1,83 @@
+.login-page {
+  background: $brand-primary;
+  bottom: 0;
+  color: $white;
+  font-family: 'Muli', sans-serif;
+  left: 0;
+  overflow: auto;
+  padding: 3em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+
+  .col-lg-4 {
+    padding: 0;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .input-lg {
+    border-radius: 0;
+    font-size: 18px;
+    height: 46px;
+    line-height: 1.3333333;
+    padding: 10px 16px;
+  }
+
+  .input-underline {
+    background: 0 0;
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 0;
+    box-shadow: none;
+    color: $white;
+  }
+
+  .input-underline:focus {
+    border-bottom: 2px solid $white;
+    box-shadow: none;
+  }
+
+  .rounded-btn {
+    background: $brand-primary;
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 50px;
+    color: rgba(255, 255, 255, .8);
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 25px;
+  }
+
+  .rounded-btn:hover,
+  .rounded-btn:focus,
+  .rounded-btn:active,
+  .rounded-btn:visited {
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+    outline: none;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+    small {
+      color: rgba(255, 255, 255, .7);
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+
+  .form-group {
+    padding: 8px 0;
+  }
+
+  .form-content {
+    padding: 40px 0;
+  }
+}
