@@ -5,6 +5,18 @@ $brand-background: #7db87e;
 $flipbook-blue: #036;
 $flipbook-yellow: #f5c86e;
 $white: #fff;
+$nav-width: 235px;
+
+.container {
+  margin-left: $nav-width;
+}
+
+@media screen and (max-width: 768px) {
+
+  .container {
+    margin-left: 0;
+  }
+}
 
 .browsehappy {
   background: $brand-background;
