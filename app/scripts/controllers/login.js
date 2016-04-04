@@ -9,7 +9,7 @@
  */
 
 angular.module('flipbookApp')
-  .controller('LoginCtrl', ['$http', function ($http) {
+  .controller('LoginCtrl', ['$http', 'globalVariables', function ($http, globalVariables) {
     console.log('hey from login');
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -24,7 +24,7 @@ angular.module('flipbookApp')
       console.log(controller.user);
       $http({
         method: 'post',
-        url: 'http://localhost:3000/sign-in',
+        url: globalVariables.baseUrl + '/sign-in',
         contentType: false,
         processData: false,
         data: controller.user,
