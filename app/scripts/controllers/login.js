@@ -9,7 +9,8 @@
  */
 
 angular.module('flipbookApp')
-  .controller('LoginCtrl', ['$http', 'globalVariables', function ($http, globalVariables) {
+  .controller('LoginCtrl', ['$http', 'globalVariables', 'User', function ($http, globalVariables, User) {
+    console.log(User);
     console.log('hey from login');
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -30,6 +31,8 @@ angular.module('flipbookApp')
         data: controller.user,
       }).success(function(data){
         controller.user = {};
+        User.isLoggedIn = true;
+        console.log(User);
         console.log('logged in!');
         console.log(data);
       });
