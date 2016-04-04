@@ -21,7 +21,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-show=false class="header">
+    <!-- Navbar 
+    <div ng-show=true class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -46,8 +47,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  -->
 
+    <sidebar></sidebar>
     <div class="container">
     <div ng-view=""></div>
     </div>
@@ -92,6 +94,7 @@
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/registration.js"></script>
+        <script src="scripts/directives/sidebar.js"></script>
         <!-- endbuild -->
 </body>
 </html>
