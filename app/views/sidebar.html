@@ -14,15 +14,27 @@
           </a>
         </li>
         <li>
-          <a [routerLink]="['Home']">
+          <a href="#/">
             <i class="fa fa-home"></i>
             <span>&nbsp; Home</span>
           </a>
         </li>
         <li>
-          <a href='http://www.strapui.com/themes/ani-angular-2-bootstrap-4-theme/'>
-            <i class="fa fa-shopping-cart"></i>
-            <span>&nbsp; Ani Premium Theme</span>
+          <a [routerLink]="['Home']">
+            <i class="fa fa-folder-open-o"></i>
+            <span>&nbsp; Gallery</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['Home']">
+            <i class="fa fa-plus"></i>
+            <span>&nbsp; Create</span>
+          </a>
+        </li>
+        <li ng-show=true>
+          <a ng-href="#/about">
+            <i class="fa fa-info-circle"></i>
+            <span>&nbsp; About</span>
           </a>
         </li>
         <li>
