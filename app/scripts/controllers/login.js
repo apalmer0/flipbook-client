@@ -8,14 +8,6 @@
  * Controller of the flipbookApp
  */
 
-// var baseUrl = 'http://localhost:3000';
-// var user = {
-//   'credentials': {
-//     'email': 'sweet1@duh.swoop',
-//     'password': 'an example password',
-//   }
-// };
-
 angular.module('flipbookApp')
   .controller('LoginCtrl', ['$http', function ($http) {
     console.log('hey from login');

@@ -18,9 +18,9 @@
               <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" ng-model="registrationCtrl.user.credentials.password">
             </div>
           </div>
-          <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
           <input type="submit" class="btn rounded-btn" value="sign up" />
         </form>
+        <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
       </div>
       <div ng-show="tab === 2">
         <form role="form" ng-controller="LoginCtrl as loginCtrl"
@@ -33,9 +33,9 @@
               <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" ng-model="loginCtrl.user.credentials.password">
             </div>
           </div>
-          <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
           <input type="submit" class="btn rounded-btn" value="log in"/>
         </form>
+        <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
       </div>
     </div>
   </div>
