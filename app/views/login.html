@@ -8,31 +8,33 @@
         <button ng-click="tab = 2" class="btn rounded-btn">log in</button>
       </div>
       <div ng-show="tab === 1">
-        <form role="form">
+        <form role="form" ng-controller="RegistrationCtrl as registrationCtrl"
+                          ng-submit="registrationCtrl.signup()">
           <div class="form-content">
             <div class="form-group">
-              <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+              <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email" ng-model="registrationCtrl.user.credentials.email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+              <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" ng-model="registrationCtrl.user.credentials.password">
             </div>
           </div>
-          <button ng-click="tab = 0" class="btn rounded-btn">cancel</button>
-          <a class="btn rounded-btn" ng-click="gotoDashboard()"> sign up </a>
+          <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
+          <input type="submit" class="btn rounded-btn" value="sign up" />
         </form>
       </div>
       <div ng-show="tab === 2">
-        <form role="form">
+        <form role="form" ng-controller="LoginCtrl as loginCtrl"
+                          ng-submit="loginCtrl.logUserIn()">
           <div class="form-content">
             <div class="form-group">
-              <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+              <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email" ng-model="loginCtrl.user.credentials.email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+              <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password" ng-model="loginCtrl.user.credentials.password">
             </div>
           </div>
-          <button ng-click="tab = 0" class="btn rounded-btn">cancel</button>
-          <a class="btn rounded-btn" ng-click="gotoDashboard()"> log in </a>
+          <button type="button" ng-click="tab = 0" class="btn rounded-btn">cancel</button>
+          <input type="submit" class="btn rounded-btn" value="log in"/>
         </form>
       </div>
     </div>

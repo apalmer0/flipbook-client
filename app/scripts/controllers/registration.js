@@ -2,23 +2,15 @@
 
 /**
  * @ngdoc function
- * @name flipbookApp.controller:LoginCtrl
+ * @name flipbookApp.controller:RegistrationCtrl
  * @description
- * # LoginCtrl
+ * # RegistrationCtrl
  * Controller of the flipbookApp
  */
 
-// var baseUrl = 'http://localhost:3000';
-// var user = {
-//   'credentials': {
-//     'email': 'sweet1@duh.swoop',
-//     'password': 'an example password',
-//   }
-// };
-
 angular.module('flipbookApp')
-  .controller('LoginCtrl', ['$http', function ($http) {
-    console.log('hey from login');
+  .controller('RegistrationCtrl', ['$http', function ($http) {
+    console.log('hey from signup');
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -27,18 +19,17 @@ angular.module('flipbookApp')
     var controller = this;
     controller.user = {};
 
-    this.logUserIn = function(){
-      console.log('login');
+    this.signup = function(){
+      console.log('signup');
       console.log(controller.user);
       $http({
         method: 'post',
-        url: 'http://localhost:3000/sign-in',
+        url: 'http://localhost:3000/sign-up',
         contentType: false,
         processData: false,
         data: controller.user,
       }).success(function(data){
-        controller.user = {};
-        console.log('logged in!');
+        console.log('holy shit....');
         console.log(data);
       });
     };
