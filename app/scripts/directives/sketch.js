@@ -111,6 +111,10 @@ angular.module('flipbookApp')
             link.download = filename;
         }
 
+        document.getElementById('clear-image').addEventListener('click', function() {
+            reset();
+        }, false);
+
         document.getElementById('download').addEventListener('click', function() {
             downloadCanvas(this, 'canvas', 'test.png');
         }, false);
