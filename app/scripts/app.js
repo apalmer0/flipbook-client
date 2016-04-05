@@ -45,6 +45,16 @@ angular
         controller: 'RegistrationCtrl',
         controllerAs: 'registration'
       })
+      .when('/createImage', {
+        templateUrl: 'views/createimage.html',
+        controller: 'CreateimageCtrl',
+        controllerAs: 'createImage'
+      })
+      .when('/gallery', {
+        templateUrl: 'views/gallery.html',
+        controller: 'GalleryCtrl',
+        controllerAs: 'gallery'
+      })
       .otherwise({
         redirectTo: '/'
       });

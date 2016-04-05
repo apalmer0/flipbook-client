@@ -52,39 +52,21 @@
 
     <sidebar></sidebar>
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
-
-    <div ng-show=false class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src='bower_components/jquery/dist/jquery.js'></script>
+    <script src='bower_components/angular/angular.js'></script>
+    <script src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'></script>
+    <script src='bower_components/angular-animate/angular-animate.js'></script>
+    <script src='bower_components/angular-cookies/angular-cookies.js'></script>
+    <script src='bower_components/angular-messages/angular-messages.js'></script>
+    <script src='bower_components/angular-resource/angular-resource.js'></script>
+    <script src='bower_components/angular-route/angular-route.js'></script>
+    <script src='bower_components/angular-sanitize/angular-sanitize.js'></script>
+    <script src='bower_components/angular-touch/angular-touch.js'></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -98,6 +80,13 @@
         <script src="scripts/directives/sidebar.js"></script>
         <script src="scripts/services/globalvariables.js"></script>
         <script src="scripts/services/user.js"></script>
+        <script src="scripts/controllers/createimage.js"></script>
+        <script src="scripts/controllers/gallery.js"></script>
+        <script src="scripts/directives/sketch.js"></script>
         <!-- endbuild -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script>
+        <!--<script language="javascript" type="text/javascript" src="./scripts/sketch.js"></script> -->
+        <script language="javascript" type="text/javascript" src="./scripts/controllers/createimage.js"></script>
+        <script type='text/javascript' src='./scripts/p5.dom.js'>
 </body>
 </html>

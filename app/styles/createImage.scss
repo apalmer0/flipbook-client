@@ -1,0 +1,38 @@
+$gray: #e5e5e5;
+$dark-gray: #777;
+$black: #000;
+$brand-background: #7db87e;
+$flipbook-blue: #036;
+$flipbook-yellow: #f5c86e;
+$white: #fff;
+
+.create-image {
+
+  .image-canvas {
+    background-color: $white;
+    border: 1px solid $dark-gray;
+    height: 330px;
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .filmstrip {
+    height: 20%;
+  }
+
+  .component-images {
+    background-color: $white;
+    border: 1px solid $gray;
+    float: left;
+    height: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    transition: margin .25s ease-out;
+    width: 100px;
+  }
+
+  .component-images:hover {
+    margin-top: 2px;
+  }
+}
