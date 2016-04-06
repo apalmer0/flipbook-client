@@ -65,6 +65,7 @@ angular.module('flipbookApp')
       }).success(function(data){
         console.log('holy shit....');
         console.log(data);
+        login(user);
       });
     }
 

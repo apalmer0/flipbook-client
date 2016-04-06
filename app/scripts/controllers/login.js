@@ -23,6 +23,5 @@ angular.module('flipbookApp')
     this.logUserIn = function(){
       var user = controller.user;
       authenticationSvc.login(user);
-      console.log(user);
     };
   }]);
