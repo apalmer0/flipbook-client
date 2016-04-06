@@ -23,12 +23,36 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controllerAs: 'about',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
@@ -58,4 +82,15 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .run(["$rootScope", "$location", function($rootScope, $location) {
+    $rootScope.$on("$routeChangeSuccess", function(userInfo) {
+      console.log(userInfo);
+    });
+
+    $rootScope.$on("$routeChangeError", function(event, current, previous, eventObj) {
+      if (eventObj.authenticated === false) {
+        $location.path("/login");
+      }
+    });
+  }]);

@@ -9,32 +9,20 @@
  */
 
 angular.module('flipbookApp')
-  .controller('LoginCtrl', ['$http', 'globalVariables', 'User', function ($http, globalVariables, User) {
-    console.log(User);
-    console.log('hey from login');
+  .controller('LoginCtrl', ['$http', 'globalVariables', 'User', 'authenticationSvc', function ($http, globalVariables, User, authenticationSvc) {
+    console.log('login controller');
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
     var controller = this;
     controller.user = {};
 
     this.logUserIn = function(){
-      console.log('login');
-      console.log(controller.user);
-      $http({
-        method: 'post',
-        url: globalVariables.baseUrl + '/sign-in',
-        contentType: false,
-        processData: false,
-        data: controller.user,
-      }).success(function(data){
-        controller.user = {};
-        User.isLoggedIn = true;
-        User.token = data.user.token;
-        console.log(User);
-        console.log('logged in!');
-      });
+      var user = controller.user;
+      authenticationSvc.login(user);
+      console.log(user);
     };
   }]);
