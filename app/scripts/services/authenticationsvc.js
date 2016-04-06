@@ -32,6 +32,7 @@ angular.module('flipbookApp')
         console.log('logged in');
         console.log(result.data.user);
         userInfo = {
+          id: result.data.user._id,
           token: result.data.user.token,
           email: result.data.user.email
         };
@@ -69,10 +70,32 @@ angular.module('flipbookApp')
       });
     }
 
+    function logout() {
+      var deferred = $q.defer();
+
+      $http({
+        method: "DELETE",
+        url: globalVariables.baseUrl + '/sign-out/' + userInfo.id,
+        headers: {
+          Authorization: 'Token token=' + userInfo.token,
+        },
+      }).then(function(result) {
+        console.log('signed out booyah');
+        $window.sessionStorage.userInfo = null;
+        userInfo = null;
+        deferred.resolve(result);
+      }, function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise;
+    }
+
 
     return {
+      getUserInfo: getUserInfo,
       signUp: signUp,
       login: login,
-      getUserInfo: getUserInfo
+      logout: logout
     };
   }]);

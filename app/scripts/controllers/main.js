@@ -8,10 +8,14 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', ['authenticationSvc', function (authenticationSvc) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+
+    this.logout = function() {
+      authenticationSvc.logout();
+    };
+  }]);

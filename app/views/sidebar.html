@@ -37,8 +37,8 @@
             <span>&nbsp; About</span>
           </a>
         </li>
-        <li>
-          <a href="#/">
+        <li ng-controller="MainCtrl as mainCtrl">
+          <a ng-click="mainCtrl.logout()">
             <i class="fa fa-sign-out"></i>
             <span>&nbsp;&nbsp; Logout</span>
           </a>
