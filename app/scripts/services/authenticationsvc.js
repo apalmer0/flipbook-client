@@ -53,7 +53,24 @@ angular.module('flipbookApp')
 
     init();
 
+    function signUp(user) {
+      console.log('signup');
+      console.log(user);
+      $http({
+        method: 'post',
+        url: globalVariables.baseUrl + '/sign-up',
+        contentType: false,
+        processData: false,
+        data: user,
+      }).success(function(data){
+        console.log('holy shit....');
+        console.log(data);
+      });
+    }
+
+
     return {
+      signUp: signUp,
       login: login,
       getUserInfo: getUserInfo
     };
