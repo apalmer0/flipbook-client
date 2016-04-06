@@ -36,8 +36,7 @@ angular.module('flipbookApp')
     this.saveFrame = function($event){
       var dataURL = canvas.toDataURL();
       var blob = dataURItoBlob(dataURL);
-      // Construct a file
-      var myFile = new File([blob], 'sample.png');
+
       var fd = new FormData($event.target);
       fd.append("image[file]", blob);
 
@@ -48,7 +47,7 @@ angular.module('flipbookApp')
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}
       }).success(function(data){
-        console.log(data);
+        console.log(data.file.location);
       });
     };
     this.awesomeThings = [
