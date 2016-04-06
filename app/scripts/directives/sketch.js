@@ -115,7 +115,6 @@ angular.module('flipbookApp')
         }, false);
 
         document.getElementById('download').addEventListener('click', function() {
-          console.log(this);
           downloadCanvas(this, 'canvas', 'image.png');
         }, false);
 

@@ -8,10 +8,11 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('CreateimageCtrl', ['$http', 'globalVariables', 'User', 'savedImages', function ($http, globalVariables, User, savedImages) {
+  .controller('CreateimageCtrl', ['$http', 'globalVariables', 'User', 'savedImages',
+    function ($http, globalVariables, User, savedImages) {
     console.log('create image');
     var canvas = document.getElementById("canvasEl");
-    // var ctx = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
 
     function dataURItoBlob(dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
@@ -44,7 +45,7 @@ angular.module('flipbookApp')
       var uploadUrl = globalVariables.baseUrl + '/images';
 
       console.log(User);
-      console.log(savedImages.imagesMethod().images);
+      console.log(savedImages.images);
 
       $http.post(uploadUrl, fd, {
           transformRequest: angular.identity,
@@ -53,11 +54,15 @@ angular.module('flipbookApp')
             Authorization: 'Token token=' + User.token,
           }
       }).success(function(data){
-        savedImages.imagesMethod().images.push(data.file.location);
+        savedImages.images.push(data.file);
         console.log(data.file.location);
-        console.log(savedImages.imagesMethod().images);
+        console.log(savedImages.images);
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       });
     };
+
+    this.componentImages = savedImages.images;
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

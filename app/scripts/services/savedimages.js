@@ -17,9 +17,5 @@ angular.module('flipbookApp')
     };
 
     // Public API here
-    return {
-      imagesMethod: function () {
-        return imageCollection;
-      }
-    };
+    return imageCollection;
   });
