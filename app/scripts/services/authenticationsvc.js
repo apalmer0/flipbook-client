@@ -8,8 +8,8 @@
  * Factory in the flipbookApp.
  */
 angular.module('flipbookApp')
-  .factory('authenticationSvc', ['$q', '$http', 'globalVariables', '$window',
-    function ($q, $http, globalVariables, $window) {
+  .factory('authenticationSvc', ['$q', '$http', 'globalVariables', '$window', '$location',
+    function ($q, $http, globalVariables, $window, $location) {
     console.log('authentication factory');
     var userInfo;
 
@@ -39,6 +39,7 @@ angular.module('flipbookApp')
         $window.sessionStorage.userInfo = JSON.stringify(userInfo);
         deferred.resolve(userInfo);
         console.log(userInfo);
+        $location.path('/');
       }, function(error) {
         deferred.reject(error);
       });
@@ -84,6 +85,7 @@ angular.module('flipbookApp')
         $window.sessionStorage.userInfo = null;
         userInfo = null;
         deferred.resolve(result);
+        $location.path('/login');
       }, function(error) {
         deferred.reject(error);
       });
