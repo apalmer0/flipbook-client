@@ -6,6 +6,12 @@
       <canvas id="canvasEl" sketch></canvas>
       <a id="clear-image">clear image</a>
       <a id="download">Download as image</a>
+        <form ng-submit="createImage.saveFrame($event)">
+          <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
+          <input type="submit" class="btn rounded-btn" value="save frame" />
+      </form>
+
+      <!-- <a ng-click="createImage.saveFrame()" id="save-frame">Save frame</a> -->
     </div>
   </div>
   <h5>Filmstrip</h5>

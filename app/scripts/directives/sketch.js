@@ -10,8 +10,7 @@ angular.module('flipbookApp')
   .directive('sketch', function () {
     return {
       restrict: 'A',
-      // templateUrl: '../views/sketch.html',
-      link: function(scope, element) {
+      link: function(scope, element, $http) {
         var canvas = document.getElementById("canvasEl");
         var ctx = canvas.getContext('2d');
         ctx.canvas.width  = 300;
@@ -112,12 +111,14 @@ angular.module('flipbookApp')
         }
 
         document.getElementById('clear-image').addEventListener('click', function() {
-            reset();
+          reset();
         }, false);
 
         document.getElementById('download').addEventListener('click', function() {
-            downloadCanvas(this, 'canvas', 'test.png');
+          console.log(this);
+          downloadCanvas(this, 'canvas', 'image.png');
         }, false);
-      }
+
+      },
     };
   });
