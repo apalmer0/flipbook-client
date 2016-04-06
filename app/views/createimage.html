@@ -13,7 +13,7 @@
     </div>
   </div>
   <h5>Filmstrip</h5>
-  <div ng-repeat="image in createImage.componentImages">
+  <div ng-controller="FrameCtrl as frameCtrl" ng-repeat="image in createImage.componentImages">
     <div class="component-images" frame></div>
   </div>
 </div>

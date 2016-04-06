@@ -19,7 +19,7 @@ angular.module('flipbookApp')
         ctx.canvas.height = 100;
         var img = new Image();
         img.onload = function() {
-            ctx.drawImage(img, 0, 0, 100, 100);
+          ctx.drawImage(img, 0, 0, 100, 100);
         };
         img.src = scope.image.location;
       }
