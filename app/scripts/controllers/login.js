@@ -32,9 +32,9 @@ angular.module('flipbookApp')
       }).success(function(data){
         controller.user = {};
         User.isLoggedIn = true;
+        User.token = data.user.token;
         console.log(User);
         console.log('logged in!');
-        console.log(data);
       });
     };
   }]);

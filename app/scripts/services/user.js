@@ -12,7 +12,8 @@ angular.module('flipbookApp')
     // Service logic
     // ...
     var user = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      token: ''
     };
 
     // var meaningOfLife = 42;
