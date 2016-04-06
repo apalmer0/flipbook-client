@@ -8,9 +8,10 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('CreateimageCtrl', ['$http', 'globalVariables', 'User', 'savedImages',
-    function ($http, globalVariables, User, savedImages) {
+  .controller('CreateimageCtrl', ['$http', 'globalVariables', 'authenticationSvc', 'savedImages',
+    function ($http, globalVariables, authenticationSvc, savedImages) {
     console.log('create image');
+    var user = authenticationSvc.getUserInfo();
     var canvas = document.getElementById("canvasEl");
     var ctx = canvas.getContext('2d');
 
@@ -44,14 +45,14 @@ angular.module('flipbookApp')
 
       var uploadUrl = globalVariables.baseUrl + '/images';
 
-      console.log(User);
+      console.log(user);
       console.log(savedImages.images);
 
       $http.post(uploadUrl, fd, {
           transformRequest: angular.identity,
           headers: {
             'Content-Type': undefined,
-            Authorization: 'Token token=' + User.token,
+            Authorization: 'Token token=' + user.token,
           }
       }).success(function(data){
         savedImages.images.push(data.file);
