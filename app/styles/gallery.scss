@@ -10,12 +10,13 @@ $white: #fff;
   margin-bottom: 25px;
 }
 
-.img-responsive {
+.gif-thumbnail {
+  border: 1px solid $flipbook-blue;
   cursor: pointer;
+  max-width: 200px;
 }
 
-.img-responsive:hover {
-  // border: 1px solid $flipbook-blue;
+.gif-thumbnail:hover {
   box-shadow: 0 10px 5px $dark-gray;
 }
 

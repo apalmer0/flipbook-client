@@ -16,6 +16,10 @@ angular.module('flipbookApp')
       return gif.gallery;
     };
 
+    this.viewGif = function(gif) {
+      window.open(gif.location, '_blank');
+    };
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
