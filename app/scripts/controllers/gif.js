@@ -74,7 +74,7 @@ angular.module('flipbookApp')
           transformRequest: angular.identity,
           headers: {
             'Content-Type': undefined,
-            // Authorization: 'Token token=' + user.token,
+            Authorization: 'Token token=' + user.token,
           }
       }).success(function(data){
         console.log('success');
