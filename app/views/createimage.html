@@ -1,15 +1,23 @@
 <div class="create-image" ng-controller="CreateimageCtrl as createImage">
   <h3>Canvas</h3>
   <div class="well well-sm">
-    <div class="image-canvas">
-      <input type="file" id="file_input">
-      <canvas id="canvasEl" sketch></canvas>
-      <a id="clear-image">clear image</a>
-      <a id="download">Download as image</a>
-      <form ng-submit="createImage.saveFrame($event)">
-        <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
-        <input type="submit" class="btn rounded-btn" value="save frame" />
-      </form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image-canvas">
+          <input type="file" id="file_input">
+          <canvas id="canvasEl" sketch></canvas>
+          <a id="download">Download as image</a>
+          <form ng-submit="createImage.saveFrame($event)">
+            <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
+            <input type="submit" class="btn rounded-btn" value="save frame" />
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6" ng-controller="GifCtrl as gifCtrl">
+        <a id="clear-image">clear image</a>
+        <button ng-click="gifCtrl.makeGif()">Make gif</button>
+        <div id="gif-goes-here"></div>
+      </div>
     </div>
   </div>
   <h5>Filmstrip</h5>

@@ -57,7 +57,19 @@ angular
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
-        controllerAs: 'contact'
+        controllerAs: 'contact',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -67,17 +79,53 @@ angular
       .when('/registration', {
         templateUrl: 'views/registration.html',
         controller: 'RegistrationCtrl',
-        controllerAs: 'registration'
+        controllerAs: 'registration',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .when('/createImage', {
         templateUrl: 'views/createimage.html',
         controller: 'CreateimageCtrl',
-        controllerAs: 'createImage'
+        controllerAs: 'createImage',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .when('/gallery', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl',
-        controllerAs: 'gallery'
+        controllerAs: 'gallery',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              console.log('fuck off');
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'
