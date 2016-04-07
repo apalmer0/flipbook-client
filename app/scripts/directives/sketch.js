@@ -16,7 +16,7 @@ angular.module('flipbookApp')
         ctx.canvas.width  = 300;
         ctx.canvas.height = 300;
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(0, 0, 298, 300);
+        ctx.fillRect(0, 0, 300, 300);
 
         $("#file_input").change(function(e){
           ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -28,7 +28,7 @@ angular.module('flipbookApp')
           img.src = url;
           img.onload = function() {
             ctx.fillStyle = "#FFFFFF";
-            ctx.fillRect(0, 0, 298, 300);
+            ctx.fillRect(0, 0, 300, 300);
             var img_width = img.width;
             var img_height = img.height;
 
