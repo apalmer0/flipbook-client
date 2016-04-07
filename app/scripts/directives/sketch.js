@@ -20,6 +20,7 @@ angular.module('flipbookApp')
             var URL = window.URL || window.URL;
             var url = URL.createObjectURL(e.target.files[0]);
             var img = new Image();
+            img.crossOrigin = "Anonymous";
             img.src = url;
 
           img.onload = function() {

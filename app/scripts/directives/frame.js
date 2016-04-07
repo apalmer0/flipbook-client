@@ -17,6 +17,7 @@ angular.module('flipbookApp')
         ctx.canvas.width  = 100;
         ctx.canvas.height = 100;
         var img = new Image();
+        img.crossOrigin = "Anonymous";
         img.onload = function() {
           ctx.drawImage(img, 0, 0, 100, 100);
         };
