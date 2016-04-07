@@ -19,7 +19,11 @@ angular.module('flipbookApp')
 
     this.makeGif = function() {
       console.log('make gif function');
-      console.log(gif.frames);
+
+      if ($("#gif-goes-here").children().length > 0) {
+        $("#gif-goes-here").empty();
+      }
+
       gifshot.createGIF({
           'images': gif.frames,
           interval: 0.3,

@@ -16,12 +16,12 @@
       <div class="col-md-6" ng-controller="GifCtrl as gifCtrl">
         <a id="clear-image">clear image</a>
         <button ng-click="gifCtrl.makeGif()">Make gif</button>
+        <form ng-submit="gifCtrl.saveGif($event)">
+          <input type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif">
+          <input type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment">
+          <input type="submit" class="btn rounded-btn" value="save gif" />
+        </form>
         <div id="gif-goes-here">
-          <form ng-submit="gifCtrl.saveGif($event)">
-            <input type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif">
-            <input type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment">
-            <input type="submit" class="btn rounded-btn" value="save gif" />
-          </form>
         </div>
       </div>
     </div>
