@@ -14,6 +14,7 @@ angular.module('flipbookApp')
   .controller('GifCtrl', ['authenticationSvc', 'gif', 'globalVariables', '$http', function (authenticationSvc, gif, globalVariables, $http) {
     console.log('gif controller loaded');
     var user = authenticationSvc.getUserInfo();
+    var controller = this;
 
     var showObj = {
       show: false
@@ -22,6 +23,12 @@ angular.module('flipbookApp')
     this.product = showObj;
 
     var gifObject;
+
+    this.gifText = '';
+    this.gifTextLocation = '';
+    this.gifFontWeight = '';
+    this.gifFontColor = '';
+
 
     this.makeGif = function() {
       console.log('make gif function');
@@ -34,12 +41,11 @@ angular.module('flipbookApp')
       gifshot.createGIF({
           'images': gif.frames,
           interval: 0.3,
-          numFrames: 6,
-          text: 'wooooooooooooo',
-          fontWeight: 'bold',
+          text: controller.gifText,
+          fontWeight: controller.gifFontWeight,
           fontFamily: 'Arial',
-          fontColor: '#ff5cef',
-          textBaseline: 'center'
+          fontColor: controller.gifFontColor,
+          textBaseline: controller.gifTextLocation,
       },function(obj) {
           if(!obj.error) {
             var image = obj.image,
