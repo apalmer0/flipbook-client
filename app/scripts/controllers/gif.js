@@ -11,23 +11,28 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('GifCtrl', ['globalVariables', '$http', function (globalVariables, $http) {
+  .controller('GifCtrl', ['gif', 'globalVariables', '$http', function (gif, globalVariables, $http) {
     console.log('gif controller loaded');
 
 
     this.makeGif = function() {
       console.log('make gif function');
+      console.log(gif.frames);
       gifshot.createGIF({
+          // 'images': gif.frames,
+          // this will work, once i've figured out CORS
           'images':
           [
-            'http://i.imgur.com/2OO33vX.jpg', 
+            'http://i.imgur.com/2OO33vX.jpg',
             'http://i.imgur.com/qOwVaSN.png',
             'http://i.imgur.com/Vo5mFZJ.gif'
           ],
           interval: 0.3,
           numFrames: 6,
           text: 'wooooooooooooo',
+          fontWeight: 'bold',
           fontFamily: 'Arial',
+          fontColor: '#ff5cef',
           textBaseline: 'center'
       },function(obj) {
           if(!obj.error) {
