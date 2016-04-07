@@ -30,12 +30,19 @@ $white: #fff;
 
   .component-images:hover {
     border: 3px solid $dark-gray;
+    box-shadow: 0 10px 5px $dark-gray;
     cursor: pointer;
     margin-top: 2px;
   }
 
   .clicked {
     border: 3px solid $flipbook-blue;
+    cursor: pointer;
+  }
+
+  .clicked:hover {
+    border: 3px solid $flipbook-blue;
+    box-shadow: 0 10px 5px $dark-gray;
     cursor: pointer;
   }
 }
