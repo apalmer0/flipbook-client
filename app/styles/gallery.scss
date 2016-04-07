@@ -1,5 +1,22 @@
+$gray: #e5e5e5;
+$dark-gray: #777;
+$black: #000;
+$brand-background: #7db87e;
+$flipbook-blue: #036;
+$flipbook-yellow: #f5c86e;
+$white: #fff;
+
 .portfolio-item {
   margin-bottom: 25px;
+}
+
+.img-responsive {
+  cursor: pointer;
+}
+
+.img-responsive:hover {
+  // border: 1px solid $flipbook-blue;
+  box-shadow: 0 10px 5px $dark-gray;
 }
 
 .page-header {

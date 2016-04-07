@@ -113,7 +113,7 @@ angular
       .when('/gallery', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl',
-        controllerAs: 'gallery',
+        controllerAs: 'galleryCtrl',
         resolve: {
           auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
             var userInfo = authenticationSvc.getUserInfo();
@@ -121,7 +121,6 @@ angular
             if (userInfo) {
               return $q.when(userInfo);
             } else {
-              console.log('fuck off');
               return $q.reject({ authenticated: false });
             }
           }]
@@ -133,7 +132,6 @@ angular
   })
   .run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeSuccess", function(userInfo) {
-      console.log(userInfo);
     });
 
     $rootScope.$on("$routeChangeError", function(event, current, previous, eventObj) {

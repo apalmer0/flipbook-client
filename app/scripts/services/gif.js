@@ -8,14 +8,32 @@
  * Factory in the flipbookApp.
  */
 angular.module('flipbookApp')
-  .factory('gif', function () {
+  .factory('gif', ['$http', 'authenticationSvc', 'globalVariables',
+  function ($http, authenticationSvc, globalVariables) {
+    console.log('gif factory');
+    var user = authenticationSvc.getUserInfo();
     // Service logic
-    // ...
 
-    var components = {
-      frames: []
+    var gifFactory = {
+      frames: [],
+      gallery: []
     };
 
+    $http({
+      method: 'get',
+      url: globalVariables.baseUrl + '/gifs',
+      headers: {
+        Authorization: 'Token token=' + user.token,
+      }
+    }).success(function(data){
+      console.log('gif index successful');
+      console.log(data);
+      gifFactory.gallery = [];
+      for (let i = 0; i < data.gifs.length; i++) {
+        gifFactory.gallery.push(data.gifs[i]);
+      }
+    });
+
     // Public API here
-    return components;
-  });
+    return gifFactory;
+  }]);
