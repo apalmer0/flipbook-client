@@ -18,6 +18,7 @@ angular.module('flipbookApp')
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, 300, 300);
 
+        // import image into canvas
         $("#file_input").change(function(e){
           ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
           var URL = window.URL || window.URL;
@@ -51,6 +52,7 @@ angular.module('flipbookApp')
             ctx.drawImage(img, 0, 0, new_x, new_y);
             console.log('should be loaded now...');
           };
+          $("#file_input").val('');
         });
 
 
