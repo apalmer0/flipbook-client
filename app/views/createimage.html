@@ -7,6 +7,7 @@
           <input type="file" id="file_input">
           <canvas id="canvasEl" sketch></canvas>
           <a id="download">Download as image</a>
+          <a id="clear-image">clear image</a>
           <form ng-submit="createImage.saveFrame($event)">
             <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
             <input type="submit" class="btn rounded-btn" value="save frame" />
@@ -14,15 +15,14 @@
         </div>
       </div>
       <div class="col-md-6" ng-controller="GifCtrl as gifCtrl">
-        <a id="clear-image">clear image</a>
+        <div id="gif-goes-here">
+        </div>
         <button ng-click="gifCtrl.makeGif()">Make gif</button>
-        <form ng-submit="gifCtrl.saveGif($event)">
+        <form ng-show="gifCtrl.product.show" ng-submit="gifCtrl.saveGif($event)">
           <input type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif">
           <input type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment">
           <input type="submit" class="btn rounded-btn" value="save gif" />
         </form>
-        <div id="gif-goes-here">
-        </div>
       </div>
     </div>
   </div>

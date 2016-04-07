@@ -15,10 +15,17 @@ angular.module('flipbookApp')
     console.log('gif controller loaded');
     var user = authenticationSvc.getUserInfo();
 
+    var showObj = {
+      show: false
+    };
+
+    this.product = showObj;
+
     var gifObject;
 
     this.makeGif = function() {
       console.log('make gif function');
+      showObj.show = true;
 
       if ($("#gif-goes-here").children().length > 0) {
         $("#gif-goes-here").empty();
