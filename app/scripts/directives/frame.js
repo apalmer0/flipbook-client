@@ -12,7 +12,6 @@ angular.module('flipbookApp')
       templateUrl: '../views/frame.html',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        console.log(element[0].firstChild);
         var canvas = element[0].firstChild;
         var ctx = canvas.getContext('2d');
         ctx.canvas.width  = 100;
@@ -22,6 +21,9 @@ angular.module('flipbookApp')
           ctx.drawImage(img, 0, 0, 100, 100);
         };
         img.src = scope.image.location;
+        element.on('click',function(){
+          element.toggleClass('clicked');
+        });
       }
     };
   });
