@@ -15,16 +15,20 @@ angular.module('flipbookApp')
         var ctx = canvas.getContext('2d');
         ctx.canvas.width  = 300;
         ctx.canvas.height = 300;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, 298, 300);
 
         $("#file_input").change(function(e){
-            var URL = window.URL || window.URL;
-            var url = URL.createObjectURL(e.target.files[0]);
-            var img = new Image();
-            img.crossOrigin = "Anonymous";
-            img.src = url;
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          var URL = window.URL || window.URL;
+          var url = URL.createObjectURL(e.target.files[0]);
 
+          var img = new Image();
+          img.crossOrigin = "Anonymous";
+          img.src = url;
           img.onload = function() {
-            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, 298, 300);
             var img_width = img.width;
             var img_height = img.height;
 

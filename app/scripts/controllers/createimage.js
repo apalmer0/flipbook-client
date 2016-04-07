@@ -59,6 +59,8 @@ angular.module('flipbookApp')
         console.log(data.file.location);
         console.log(savedImages.images);
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, 298, 300);
       });
     };
 
