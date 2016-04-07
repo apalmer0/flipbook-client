@@ -12,20 +12,19 @@ $white: #fff;
     background-color: $white;
     border: 1px solid $dark-gray;
     height: 330px;
-    // margin: 0 auto;
-    width: 300px;
+    width: 302px;
   }
 
   .component-images {
     background-color: $white;
     border: 1px solid $gray;
     float: left;
-    height: 100px;
+    height: 108px;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 15px;
     transition: margin .25s ease-out;
-    width: 100px;
+    width: 108px;
   }
 
   .component-images:hover {
