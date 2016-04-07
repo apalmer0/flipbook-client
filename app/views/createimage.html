@@ -18,6 +18,7 @@
         <div id="gif-goes-here">
         </div>
         <button ng-click="gifCtrl.makeGif()">Make gif</button>
+        <button ng-show="gifCtrl.product.show" ng-click="gifCtrl.killGif()">Kill gif</button>
         <form ng-show="gifCtrl.product.show" ng-submit="gifCtrl.saveGif($event)">
           <input type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif">
           <input type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment">
