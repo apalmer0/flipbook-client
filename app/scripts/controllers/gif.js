@@ -101,6 +101,8 @@ angular.module('flipbookApp')
           }
       }).success(function(data){
         console.log('success');
+        showObj.show = false;
+        controller.killGif();
         console.log(data);
       });
 

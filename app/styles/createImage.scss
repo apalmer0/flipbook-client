@@ -5,6 +5,8 @@ $brand-background: #7db87e;
 $flipbook-blue: #036;
 $flipbook-yellow: #f5c86e;
 $white: #fff;
+$invalid-red: #fa787e;
+$valid-green: #78fa89;
 
 .create-image {
 
@@ -51,5 +53,13 @@ $white: #fff;
 
   .col-md-6 {
     margin: 0;
+  }
+
+  .ng-invalid.ng-dirty {
+    border-color: $invalid-red;
+  }
+
+  .ng-valid.ng-dirty {
+    border-color: $valid-green;
   }
 }
