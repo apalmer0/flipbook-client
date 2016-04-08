@@ -53,6 +53,7 @@ angular.module('flipbookApp')
             animatedImage.src = image;
             gifObject = animatedImage;
             document.getElementById("gif-goes-here").appendChild(animatedImage);
+            gif.frames = [];
           }
       });
     };
