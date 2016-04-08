@@ -39,13 +39,15 @@ angular.module('flipbookApp')
       }
 
       gifshot.createGIF({
-          'images': gif.frames,
-          interval: 0.3,
-          text: controller.gifText,
-          fontWeight: controller.gifFontWeight,
-          fontFamily: 'Arial',
-          fontColor: controller.gifFontColor,
-          textBaseline: controller.gifTextLocation,
+        gifWidth: 300,
+        gifHeight: 300,
+        'images': gif.frames,
+        interval: 0.3,
+        text: controller.gifText,
+        fontWeight: controller.gifFontWeight,
+        fontFamily: 'Arial',
+        fontColor: controller.gifFontColor,
+        textBaseline: controller.gifTextLocation,
       },function(obj) {
           if(!obj.error) {
             var image = obj.image,
