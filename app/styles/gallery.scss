@@ -16,8 +16,19 @@ $white: #fff;
   max-width: 200px;
 }
 
+.gif-options-button {
+  display: none;
+  margin-left: 5px;
+  margin-top: -38px;
+  position: absolute;
+}
+
 .gif-thumbnail:hover {
   box-shadow: 0 10px 5px $dark-gray;
+
+  .gif-options-button {
+    display: block;
+  }
 }
 
 .page-header {
