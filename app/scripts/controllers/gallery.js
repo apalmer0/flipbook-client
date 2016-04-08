@@ -15,6 +15,29 @@ angular.module('flipbookApp')
 
     var controller = this;
 
+    // this.gifGallery = function(){
+    //   return gif.gallery;
+    // };
+
+    this.getGifs = function() {
+      console.log('getting gifs');
+      $http({
+        method: 'get',
+        url: globalVariables.baseUrl + '/gifs',
+        headers: {
+          Authorization: 'Token token=' + user.token,
+        }
+      }).success(function(data){
+        console.log('gif index successful');
+        console.log(data);
+        gif.gallery = [];
+        for (let i = 0; i < data.gifs.length; i++) {
+          gif.gallery.push(data.gifs[i]);
+        }
+      });
+    };
+
+    this.getGifs();
     this.gifGallery = function(){
       return gif.gallery;
     };
