@@ -40,6 +40,26 @@ angular.module('flipbookApp')
       });
     };
 
+    this.editGif = function(gif, $event) {
+      console.log('edit gif');
+      console.log($event.target);
+      var fd = new FormData($event.target);
+
+      $http({
+        method: 'patch',
+        url: globalVariables.baseUrl + '/gifs/' + gif._id,
+        transformRequest: angular.identity,
+        headers: {
+          'Content-Type': undefined,
+          Authorization: 'Token token=' + user.token,
+        },
+        data: fd
+      }).success(function(data){
+        console.log('edit gif successful');
+        console.log(data);
+      });
+    };
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

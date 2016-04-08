@@ -41,6 +41,23 @@ $white: #fff;
   position: absolute;
 }
 
+.gif-edit-button {
+  display: none;
+  margin-right: 18px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+.gif-edit-panel {
+  background-color: $white;
+  border: 1px solid $black;
+  height: 157px;
+  position: absolute;
+  top: 0;
+  width: 152px;
+}
+
 .gif-thumbnail:hover {
   box-shadow: 0 10px 5px $dark-gray;
 
@@ -48,7 +65,7 @@ $white: #fff;
     display: block;
   }
 
-  .gif-name {
+  .gif-edit-button {
     display: block;
   }
 }
