@@ -16,6 +16,24 @@ $white: #fff;
   max-width: 200px;
 }
 
+.gif-details {
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 0, 0, 0));
+  // background: $black;
+  color: $white;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  width: 152px;
+}
+
+.gif-name {
+  font-weight: bold;
+}
+
+.gif-comment {
+  font-size: 75%;
+}
+
 .gif-options-button {
   display: none;
   margin-left: 5px;
@@ -27,6 +45,10 @@ $white: #fff;
   box-shadow: 0 10px 5px $dark-gray;
 
   .gif-options-button {
+    display: block;
+  }
+
+  .gif-name {
     display: block;
   }
 }

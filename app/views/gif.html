@@ -1,5 +1,8 @@
-<!--<img class="img-responsive" src="http://placehold.it/750x450" alt="">-->
 <canvas></canvas>
+<div class="gif-details">
+  <div class="gif-name">{{gif.name}}</div>
+  <div class="gif-comment">{{gif.comment}}</div>
+</div>
 <div class="gif-options-button">
   <button class="btn btn-success" ng-click="galleryCtrl.viewGif(gif)">view</button>
   <button class="btn btn-danger" ng-click="galleryCtrl.deleteGif(gif)">delete</button>
