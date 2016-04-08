@@ -85,10 +85,10 @@ angular.module('flipbookApp')
 
     this.saveGif = function($event) {
       console.log('save gif function');
-      // var show = (typeof gifObject !== "undefined");
 
       var gifBlob = dataURItoBlob(gifObject.src);
       var fd = new FormData($event.target);
+      fd.append("gif[src]", gifObject.src);
       fd.append("gif[file]", gifBlob);
 
       var uploadUrl = globalVariables.baseUrl + '/gifs';

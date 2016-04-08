@@ -8,8 +8,8 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('GalleryCtrl', ['$scope','$http', 'globalVariables', 'gif', 'authenticationSvc',
-  function ($scope, $http, globalVariables, gif, authenticationSvc) {
+  .controller('GalleryCtrl', ['$scope', '$http', 'globalVariables', 'gif', '$location', 'authenticationSvc',
+  function ($scope, $http, globalVariables, gif, $location, authenticationSvc) {
     console.log('gallery controller loaded');
     var user = authenticationSvc.getUserInfo();
 
@@ -43,7 +43,7 @@ angular.module('flipbookApp')
     };
 
     this.viewGif = function(gif) {
-      window.open(gif.location, '_blank');
+      $location.path('/gifs/'+gif.id)
     };
 
     this.deleteGif = function(gif) {

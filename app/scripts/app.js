@@ -93,10 +93,26 @@ angular
           }]
         }
       })
-      .when('/gallery', {
+      .when('/gifs', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl',
         controllerAs: 'galleryCtrl',
+        resolve: {
+          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
+            var userInfo = authenticationSvc.getUserInfo();
+
+            if (userInfo) {
+              return $q.when(userInfo);
+            } else {
+              return $q.reject({ authenticated: false });
+            }
+          }]
+        }
+      })
+      .when('/gifs/:id', {
+        templateUrl: 'views/viewgif.html',
+        controller: 'ViewgifCtrl',
+        controllerAs: 'viewGif',
         resolve: {
           auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
             var userInfo = authenticationSvc.getUserInfo();
