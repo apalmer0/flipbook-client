@@ -8,7 +8,7 @@
  * Controller of the flipbookApp
  */
 angular.module('flipbookApp')
-  .controller('FrameCtrl', ['gif', '$element', function (gif, $element) {
+  .controller('FrameCtrl', ['gif', function (gif) {
 
     this.viewImage = function(image) {
 

@@ -11,7 +11,7 @@ angular.module('flipbookApp')
     return {
       templateUrl: '../views/frame.html',
       restrict: 'A',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
         var canvas = element[0].firstChild;
         var ctx = canvas.getContext('2d');
         ctx.canvas.width  = 100;

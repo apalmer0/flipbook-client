@@ -10,7 +10,7 @@ angular.module('flipbookApp')
   .directive('sketch', function () {
     return {
       restrict: 'A',
-      link: function(scope, element, $http) {
+      link: function(scope, element) {
         var canvas = document.getElementById("canvasEl");
         var ctx = canvas.getContext('2d');
         ctx.canvas.width  = 300;
@@ -91,7 +91,7 @@ angular.module('flipbookApp')
 
         });
 
-        element.bind('mouseup', function(event) {
+        element.bind('mouseup', function() {
           // stop drawing
           drawing = false;
         });
