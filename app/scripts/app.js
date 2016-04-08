@@ -37,23 +37,6 @@ angular
           }]
         }
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about',
-        resolve: {
-          auth: ["$q", "authenticationSvc", function($q, authenticationSvc) {
-            var userInfo = authenticationSvc.getUserInfo();
-
-            if (userInfo) {
-              return $q.when(userInfo);
-            } else {
-              console.log('fuck off');
-              return $q.reject({ authenticated: false });
-            }
-          }]
-        }
-      })
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
