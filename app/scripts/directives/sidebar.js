@@ -9,7 +9,7 @@
 angular.module('flipbookApp')
   .directive('sidebar', function () {
     return {
-      templateUrl: '../views/sidebar.html',
+      templateUrl: '../../views/sidebar.html',
       restrict: 'E',
       // link: function postLink(scope, element, attrs) {
       //   element.text('this is the sidebar directive');
