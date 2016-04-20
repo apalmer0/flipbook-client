@@ -28,6 +28,12 @@ $nav-width: 235px;
   margin-top: 10px;
 }
 
+#bottom-link {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
 .custom-well {
   height: 410px;
 }
