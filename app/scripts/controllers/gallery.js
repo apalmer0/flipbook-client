@@ -31,8 +31,8 @@ angular.module('flipbookApp')
         console.log('gif index successful');
         console.log(data);
         gif.gallery = [];
-        for (let i = 0; i < data.gifs.length; i++) {
-          gif.gallery.push(data.gifs[i]);
+        for (var j = 0; j < data.gifs.length; j++) {
+          gif.gallery.push(data.gifs[j]);
         }
       });
     };
