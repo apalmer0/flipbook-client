@@ -38,7 +38,7 @@ angular.module('flipbookApp')
       console.log('view');
       console.log(gif);
       window.open(gif.location, '_blank');
-    }
+    };
 
     this.awesomeThings = [
       'HTML5 Boilerplate',

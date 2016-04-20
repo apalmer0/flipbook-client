@@ -43,7 +43,7 @@ angular.module('flipbookApp')
     };
 
     this.viewGif = function(gif) {
-      $location.path('/gifs/'+gif.id)
+      $location.path('/gifs/'+gif.id);
     };
 
     this.deleteGif = function(gif) {
