@@ -31,7 +31,7 @@ var app = angular
             if (userInfo) {
               return $q.when(userInfo);
             } else {
-              console.log('fuck off');
+              console.log('not logged in');
               return $q.reject({ authenticated: false });
             }
           }]
@@ -48,7 +48,7 @@ var app = angular
             if (userInfo) {
               return $q.when(userInfo);
             } else {
-              console.log('fuck off');
+              console.log('not logged in');
               return $q.reject({ authenticated: false });
             }
           }]
@@ -70,7 +70,7 @@ var app = angular
             if (userInfo) {
               return $q.when(userInfo);
             } else {
-              console.log('fuck off');
+              console.log('not logged in');
               return $q.reject({ authenticated: false });
             }
           }]
@@ -87,7 +87,7 @@ var app = angular
             if (userInfo) {
               return $q.when(userInfo);
             } else {
-              console.log('fuck off');
+              console.log('not logged in');
               return $q.reject({ authenticated: false });
             }
           }]
