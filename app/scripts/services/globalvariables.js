@@ -11,5 +11,5 @@ angular.module('flipbookApp')
   .value('globalVariables', {
     baseUrl: document.location.hostname === 'localhost' ?
       'http://localhost:3000' :
-      'http://flipbook-api.herokuapp.com/#',
+      'http://flipbook-api.herokuapp.com',
   });
