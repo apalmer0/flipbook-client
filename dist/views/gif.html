@@ -1,0 +1,28 @@
+<canvas></canvas>
+<div class="gif-details">
+  <div class="gif-name">{{gif.name}}</div>
+  <div class="gif-comment">{{gif.comment}}</div>
+</div>
+<div class="gif-options-button">
+  <button class="btn btn-success" ng-click="galleryCtrl.viewGif(gif)">view</button>
+  <button class="btn btn-danger" ng-click="galleryCtrl.deleteGif(gif)">delete</button>
+</div>
+<div class="gif-edit-button" ng-init="editMode = false">
+  <button class="btn btn-primary btn-sm" ng-click="editMode = true">edit</button>
+</div>
+<div class="gif-edit-panel" ng-show=editMode>
+  <div class="form-group">
+    <form ng-submit="galleryCtrl.editGif(gif, $event)">
+      <div>
+        <label for="gifName">Gif Name</label>
+        <input id="gifName" type="text" ng-model="gif.name" name="name" value={{gif.name}} placeholder="name your gif">
+      </div>
+      <div>
+        <label for="gifComment">Gif Comment</label>
+        <input id="gifComment" type="text" ng-model="gif.comment" name="comment" value={{gif.comment}} placeholder="make a comment">
+      </div>
+      <input type="submit" class="btn btn-sm rounded-btn" value="edit" />
+      <button type="button" class="btn btn-primary btn-sm" ng-click="editMode = false">cancel</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="create-image" ng-controller="CreateimageCtrl as createImage">
+  <h3>Canvas</h3>
+  <div class="well well-sm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image-canvas">
+          <input type="file" id="file_input">
+          <canvas id="canvasEl" sketch></canvas>
+          <a id="download">Download as image</a>
+          <a id="clear-image">clear image</a>
+          <form ng-submit="createImage.saveFrame($event)">
+            <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
+            <input type="submit" class="btn rounded-btn" value="save frame" />
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6" ng-controller="GifCtrl as gifCtrl">
+        <div id="gif-goes-here">
+        </div>
+        <form class="form-horizontal" ng-hide="gifCtrl.product.show" ng-submit="gifCtrl.makeGif()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="gifCaption">
+                  Caption
+                </label>
+                <input id="gifCaption" type="text" ng-model="gifCtrl.gifText" placeholder="write on your gif">
+              </div>
+
+              <div class="form-group">
+                <label>
+                  Caption Placement
+                </label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifTextLocation" value="top">Top
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifTextLocation" value="center">Center
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifTextLocation" value="bottom">Bottom
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  Font Weight
+                </label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontWeight" value="normal">Normal
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontWeight" value="bold">Bold
+                  </label>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Font Color
+                </label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#FF0000">Red
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#FF00FF">Pink
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#FF4500">Orange
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#FFFF00">Yellow
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#00FF00">Green
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#0000FF">Blue
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#6600cc">Purple
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#000000">Black
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="gifCtrl.gifFontColor" value="#FFFFFF">White
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" class="btn rounded-btn" value="Make gif" />
+        </form>
+        <!--<button ng-click="gifCtrl.makeGif()">Make gif</button>-->
+        <button ng-show="gifCtrl.product.show" ng-click="gifCtrl.killGif()">Kill gif</button>
+        <form name="save-gif-form" ng-show="gifCtrl.product.show" ng-submit="gifCtrl.saveGif($event)" novalidate>
+          <div class="form-group">
+            <label for="gifName">Gif Name</label>
+            <input id="gifName" type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif" required>
+          </div>
+          <div class="form-group">
+            <label for="gifComment">Gif Comment</label>
+            <input id="gifComment" type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment" required>
+          </div>
+          <input type="submit" class="btn rounded-btn" value="save gif" />
+        </form>
+      </div>
+    </div>
+  </div>
+  <h5>Filmstrip</h5>
+  <div ng-controller="FrameCtrl as frameCtrl" ng-repeat="image in createImage.componentImages">
+    <div class="component-images" frame></div>
+  </div>
+</div>

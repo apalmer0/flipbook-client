@@ -1,0 +1,44 @@
+<aside class="sidebar">
+  <div class="sidenav-outer">
+    <div class="menu-body">
+      <ul class="nav nav-pills nav-stacked sidenav">
+        <li>
+          <a href="#/" class="website-name">
+            flipbook
+          </a>
+        </li>
+        <li>
+          <a href="#/" class="logo">
+            <img src="images/logo.b3869143.png" class="site-avatar" />
+            <p class="text-xs-center"></p>
+          </a>
+        </li>
+        <li>
+          <a href="#/">
+            <i class="fa fa-home"></i>
+            <span>&nbsp; Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/gifs">
+            <i class="fa fa-folder-open-o"></i>
+            <span>&nbsp; Gallery</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/createImage">
+            <i class="fa fa-plus"></i>
+            <span>&nbsp; Create</span>
+          </a>
+        </li>
+        <li></li>
+        <li ng-controller="MainCtrl as mainCtrl">
+          <a ng-click="mainCtrl.logout()">
+            <i class="fa fa-sign-out"></i>
+            <span>&nbsp;&nbsp; Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
