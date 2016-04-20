@@ -9,7 +9,7 @@
 angular.module('flipbookApp')
   .directive('frame', function () {
     return {
-      templateUrl: '../views/frame.html',
+      templateUrl: 'views/frame.html',
       restrict: 'A',
       link: function postLink(scope, element) {
         var canvas = element[0].firstChild;
