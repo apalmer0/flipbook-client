@@ -20,7 +20,7 @@ var app = angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/#/', {
+      .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
@@ -37,7 +37,7 @@ var app = angular
           }]
         }
       })
-      .when('/#/contact', {
+      .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
         controllerAs: 'contact',
@@ -54,12 +54,12 @@ var app = angular
           }]
         }
       })
-      .when('/#/login', {
+      .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
-      .when('/#/registration', {
+      .when('/registration', {
         templateUrl: 'views/registration.html',
         controller: 'RegistrationCtrl',
         controllerAs: 'registration',
@@ -76,7 +76,7 @@ var app = angular
           }]
         }
       })
-      .when('/#/createImage', {
+      .when('/createImage', {
         templateUrl: 'views/createimage.html',
         controller: 'CreateimageCtrl',
         controllerAs: 'createImage',
@@ -93,7 +93,7 @@ var app = angular
           }]
         }
       })
-      .when('/#/gifs', {
+      .when('/gifs', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl',
         controllerAs: 'galleryCtrl',
@@ -109,7 +109,7 @@ var app = angular
           }]
         }
       })
-      .when('/#/gifs/:id', {
+      .when('/gifs/:id', {
         templateUrl: 'views/viewgif.html',
         controller: 'ViewgifCtrl',
         controllerAs: 'viewGif',
@@ -126,7 +126,7 @@ var app = angular
         }
       })
       .otherwise({
-        redirectTo: '/#/'
+        redirectTo: '/'
       });
   })
   .run(["$rootScope", "$location", function($rootScope, $location) {
@@ -136,7 +136,7 @@ var app = angular
 
     $rootScope.$on("$routeChangeError", function(event, current, previous, eventObj) {
       if (eventObj.authenticated === false) {
-        $location.path("/#/login");
+        $location.path("/login");
       }
     });
   }]);
