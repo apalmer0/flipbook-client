@@ -1,16 +1,16 @@
 <div class="create-image" ng-controller="CreateimageCtrl as createImage">
-  <h3>Canvas</h3>
-  <div class="well well-sm">
+  <h4>Create GIF</h4>
+  <div class="well well-sm custom-well">
     <div class="row">
       <div class="col-md-6">
         <div class="image-canvas">
           <input type="file" id="file_input">
           <canvas id="canvasEl" sketch></canvas>
-          <a id="download">Download as image</a>
-          <a id="clear-image">clear image</a>
-          <form ng-submit="createImage.saveFrame($event)">
+          <a type="button" id="download">Download as image</a>
+          <form ng-submit="createImage.saveFrame($event)" class="frame-button-row">
+            <button class="btn btn-clear" type="button" id="clear-image">clear image</button>
             <input type="hidden" ng-model="createImage.image.name" name="image[name]" value="imageName">
-            <input type="submit" class="btn rounded-btn" value="save frame" />
+            <input type="submit" class="btn btn-submit" value="save frame" />
           </form>
         </div>
       </div>
@@ -120,25 +120,23 @@
             </div>
           </div>
 
-          <input type="submit" class="btn rounded-btn" value="Make gif" />
+          <input type="submit" class="btn btn-submit" value="Make gif" />
         </form>
-        <!--<button ng-click="gifCtrl.makeGif()">Make gif</button>-->
-        <button ng-show="gifCtrl.product.show" ng-click="gifCtrl.killGif()">Kill gif</button>
-        <form name="save-gif-form" ng-show="gifCtrl.product.show" ng-submit="gifCtrl.saveGif($event)" novalidate>
-          <div class="form-group">
-            <label for="gifName">Gif Name</label>
-            <input id="gifName" type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif" required>
-          </div>
-          <div class="form-group">
-            <label for="gifComment">Gif Comment</label>
-            <input id="gifComment" type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment" required>
-          </div>
-          <input type="submit" class="btn rounded-btn" value="save gif" />
-        </form>
+          <form name="save-gif-form" ng-show="gifCtrl.product.show" ng-submit="gifCtrl.saveGif($event)" novalidate>
+            <div class="form-group custom-form-group">
+              <label for="gifName">Gif Name</label>
+              <input id="gifName" type="text" ng-model="gifCtrl.gif.name" name="gif[name]" value="" placeholder="name your gif" required>
+            </div>
+            <div class="form-group custom-form-group">
+              <label for="gifComment">Gif Comment</label>
+              <input id="gifComment" type="text" ng-model="gifCtrl.gif.comment" name="gif[comment]" value="" placeholder="make a comment" required>
+            </div>
+            <button type="button" class="btn btn-kill" ng-show="gifCtrl.product.show" ng-click="gifCtrl.killGif()">Kill gif</button>
+            <input type="submit" class="btn rounded-btn" value="save gif" />
+          </form>
       </div>
     </div>
   </div>
-  <h5>Filmstrip</h5>
   <div ng-controller="FrameCtrl as frameCtrl" ng-repeat="image in createImage.componentImages">
     <div class="component-images" frame></div>
   </div>

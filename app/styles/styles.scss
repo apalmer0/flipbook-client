@@ -4,8 +4,33 @@ $black: #000;
 $brand-background: #7db87e;
 $flipbook-blue: #036;
 $flipbook-yellow: #f5c86e;
+$flipbook-red: #f68079;
 $white: #fff;
 $nav-width: 235px;
+
+.btn-clear {
+  background-color: $flipbook-yellow;
+}
+
+.btn-submit {
+  background-color: $brand-background;
+}
+
+.btn-kill {
+  background-color: $flipbook-red;
+}
+
+.custom-form-group {
+  margin-bottom: 0;
+}
+
+.frame-button-row {
+  margin-top: 10px;
+}
+
+.custom-well {
+  height: 410px;
+}
 
 .container {
   margin-left: $nav-width;

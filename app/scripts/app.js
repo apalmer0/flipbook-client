@@ -125,9 +125,9 @@ var app = angular
           }]
         }
       })
-      // .otherwise({
-      //   redirectTo: '/'
-      // });
+      .otherwise({
+        redirectTo: '/'
+      });
   })
   .run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeSuccess", function(userInfo) {
