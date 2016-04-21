@@ -65,7 +65,7 @@ angular.module('flipbookApp')
         processData: false,
         data: user,
       }).success(function(data){
-        console.log('holy shit....');
+        console.log('user signed up.');
         console.log(data);
         login(user);
       });
