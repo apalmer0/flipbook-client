@@ -16,6 +16,8 @@ angular.module('flipbookApp')
     var user = authenticationSvc.getUserInfo();
     var controller = this;
 
+    // used to toggle whether the gif or the options are being shown
+    // default is to show options, not gif
     var showObj = {
       show: false
     };
@@ -32,6 +34,7 @@ angular.module('flipbookApp')
 
     this.makeGif = function() {
       console.log('make gif function');
+      // when you make the gif, show the gif panel and hide the options
       showObj.show = true;
 
       if ($("#gif-goes-here").children().length > 0) {
@@ -62,11 +65,14 @@ angular.module('flipbookApp')
 
     this.killGif = function() {
       $("#gif-goes-here").empty();
+      // when you kill the gif, hide the gif panel and show the options
       showObj.show = false;
     };
 
     function dataURItoBlob(dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
+
+        // needs refactoring - this is the same code as in createimage.js
         var byteString;
         if (dataURI.split(',')[0].indexOf('base64') >= 0) {
             byteString = atob(dataURI.split(',')[1]);
@@ -88,7 +94,11 @@ angular.module('flipbookApp')
     this.saveGif = function($event) {
       console.log('save gif function');
 
+      // in createimage.js, we created a blob using the dataURl from the canvas.
+      // here, we create a blob using the saved-gif source itself, which is the AWS url
       var gifBlob = dataURItoBlob(gifObject.src);
+
+      // and do the same saving process - append it to formdata.
       var fd = new FormData($event.target);
       fd.append("gif[src]", gifObject.src);
       fd.append("gif[file]", gifBlob);
@@ -96,6 +106,14 @@ angular.module('flipbookApp')
       var uploadUrl = globalVariables.baseUrl + '/gifs';
 
       $http.post(uploadUrl, fd, {
+        // Angular’s default transformRequest function will try to serialize our
+        // FormData object, so we override it with the identity function to leave
+        // the data intact. Angular’s default Content-Type header for POST and
+        // PUT requests is application/json, so we want to change this, too. By
+        // setting ‘Content-Type’: undefined, the browser sets the Content-Type
+        // to multipart/form-data for us and fills in the correct boundary. Manually
+        // setting ‘Content-Type’: multipart/form-data will fail to fill in the
+        // boundary parameter of the request.
           transformRequest: angular.identity,
           headers: {
             'Content-Type': undefined,

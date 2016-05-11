@@ -16,6 +16,7 @@ angular.module('flipbookApp')
     var ctx = canvas.getContext('2d');
 
     function dataURItoBlob(dataURI) {
+        // needs refactoring - this is the same code as in gif.js
         // convert base64/URLEncoded data component to raw binary data held in a string
         var byteString;
         if (dataURI.split(',')[0].indexOf('base64') >= 0) {
@@ -36,10 +37,14 @@ angular.module('flipbookApp')
     }
 
     this.saveFrame = function($event){
+      // take canvas data and extract dataURL
       var dataURL = canvas.toDataURL();
+      // convert dataURL to blob - 'proto-file'
       var blob = dataURItoBlob(dataURL);
 
+      // 'fake' form - it's just a hidden field with a submit button. kinda hacky.
       var fd = new FormData($event.target);
+      // append blob to form data
       fd.append("image[file]", blob);
 
 
@@ -48,13 +53,23 @@ angular.module('flipbookApp')
       console.log(user);
       console.log(savedImages.images);
 
+      // ajax request - send file to images url
       $http.post(uploadUrl, fd, {
+        // Angular’s default transformRequest function will try to serialize our
+        // FormData object, so we override it with the identity function to leave
+        // the data intact. Angular’s default Content-Type header for POST and
+        // PUT requests is application/json, so we want to change this, too. By
+        // setting ‘Content-Type’: undefined, the browser sets the Content-Type
+        // to multipart/form-data for us and fills in the correct boundary. Manually
+        // setting ‘Content-Type’: multipart/form-data will fail to fill in the
+        // boundary parameter of the request.
           transformRequest: angular.identity,
           headers: {
             'Content-Type': undefined,
             Authorization: 'Token token=' + user.token,
           }
       }).success(function(data){
+        // woot. file saved - add it to the pile and clear the canvas!
         savedImages.images.push(data.file);
         console.log(data.file.location);
         console.log(savedImages.images);
