@@ -5,7 +5,8 @@
  * @name flipbookApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the flipbookApp
+ * controller for overall functions of the app that aren't handled elsewhere, namely
+ * the logout function that invalidates the user token.
  */
 angular.module('flipbookApp')
   .controller('MainCtrl', ['authenticationSvc', function (authenticationSvc) {

@@ -1,22 +1,22 @@
 'use strict';
 
-// const gifshot = require('gifshot');
-// import 'gifshot' from 'gifshot';
-
 /**
  * @ngdoc function
  * @name flipbookApp.controller:GifCtrl
  * @description
  * # GifCtrl
- * Controller of the flipbookApp
+ * controller for gif-specific functions - modifying attributes of gif, loading gifs from
+ * saved urls, toggling gif attribute form and gif itself
  */
 angular.module('flipbookApp')
   .controller('GifCtrl', ['authenticationSvc', 'gif', 'globalVariables', '$http', function (authenticationSvc, gif, globalVariables, $http) {
     console.log('gif controller loaded');
     var user = authenticationSvc.getUserInfo();
+
+    // save this controller to a variable to access it within future functions' scopes
     var controller = this;
 
-    // used to toggle whether the gif or the options are being shown
+    // used to toggle whether the gif or the gif options are being shown
     // default is to show options, not gif
     var showObj = {
       show: false
@@ -26,6 +26,8 @@ angular.module('flipbookApp')
 
     var gifObject;
 
+    // each of these will be used in part of gif-creation tool. instantiated as blank
+    // to ensure default values.
     this.gifText = '';
     this.gifTextLocation = '';
     this.gifFontWeight = '';
@@ -37,10 +39,13 @@ angular.module('flipbookApp')
       // when you make the gif, show the gif panel and hide the options
       showObj.show = true;
 
+      // if there's currently a gif in place, remove it and create a new one.
       if ($("#gif-goes-here").children().length > 0) {
         $("#gif-goes-here").empty();
       }
 
+      // access the gifshot tool, specifically the createGIF method, and pass in
+      // the various variables and image frames from the gif service.
       gifshot.createGIF({
         gifWidth: 300,
         gifHeight: 300,
@@ -58,6 +63,8 @@ angular.module('flipbookApp')
             animatedImage.src = image;
             gifObject = animatedImage;
             document.getElementById("gif-goes-here").appendChild(animatedImage);
+            // once the gif has been created, empty the gif frames factory so
+            // the next gif won't have old frames included.
             gif.frames = [];
           }
       });
@@ -69,10 +76,10 @@ angular.module('flipbookApp')
       showObj.show = false;
     };
 
+    // needs refactoring - this is the same code as in createimage.js
+    // takes dataURI from the canvas element and turns it into a blob to append to formData
     function dataURItoBlob(dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
-
-        // needs refactoring - this is the same code as in createimage.js
         var byteString;
         if (dataURI.split(',')[0].indexOf('base64') >= 0) {
             byteString = atob(dataURI.split(',')[1]);
@@ -88,6 +95,7 @@ angular.module('flipbookApp')
             ia[i] = byteString.charCodeAt(i);
         }
 
+        // woot - we've got a blob now!
         return new Blob([ia], {type:mimeString});
     }
 

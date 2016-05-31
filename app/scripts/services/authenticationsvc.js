@@ -36,9 +36,12 @@ angular.module('flipbookApp')
           token: result.data.user.token,
           email: result.data.user.email
         };
+        // save user data into session storage - ensures user doesn't have to
+        // log in every time they refresh the page.
         $window.sessionStorage.userInfo = JSON.stringify(userInfo);
         deferred.resolve(userInfo);
         console.log(userInfo);
+        // after logging in, redirect to homepage.
         $location.path('/');
       }, function(error) {
         deferred.reject(error);
@@ -67,6 +70,8 @@ angular.module('flipbookApp')
       }).success(function(data){
         console.log('user signed up.');
         console.log(data);
+        // after signing up, run the login function passing in the collected user credentials
+        // so the user doesn't have to sign up and then log in.
         login(user);
       });
     }

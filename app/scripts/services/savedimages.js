@@ -4,8 +4,8 @@
  * @ngdoc service
  * @name flipbookApp.savedImages
  * @description
- * # savedImages
- * Factory in the flipbookApp.
+ * factory for storing individual frames of the gif in an array - specific elements
+ * of this collection can be selected and used in the gif 
  */
 angular.module('flipbookApp')
   .factory('savedImages', function () {

@@ -5,7 +5,8 @@
  * @name flipbookApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the flipbookApp
+ * controller handling logging user in and passing collected data to user service, where
+ * user is logged in and token created/associated with user.
  */
 
 angular.module('flipbookApp')
@@ -17,9 +18,11 @@ angular.module('flipbookApp')
       'Karma'
     ];
 
+    // save this controller to a variable to access it within future functions' scopes
     var controller = this;
     controller.user = {};
 
+    // when login submit button is clicked, this function is called
     this.logUserIn = function(){
       var user = controller.user;
       authenticationSvc.login(user);

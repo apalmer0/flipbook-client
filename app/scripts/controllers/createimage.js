@@ -5,7 +5,10 @@
  * @name flipbookApp.controller:CreateimageCtrl
  * @description
  * # CreateimageCtrl
- * Controller of the flipbookApp
+ * responsible for taking image data off canvas, turning it into a blob,
+ * adding it to formdata with basic image info, and shipping the whole thing
+ * to the api, so the api can save the record of the image and save the image
+ * itself to AWS.
  */
 angular.module('flipbookApp')
   .controller('CreateimageCtrl', ['$http', 'globalVariables', 'authenticationSvc', 'savedImages',
@@ -15,8 +18,9 @@ angular.module('flipbookApp')
     var canvas = document.getElementById("canvasEl");
     var ctx = canvas.getContext('2d');
 
+    // needs refactoring - this is the same code as in gif.js
+    // takes dataURI from the canvas element and turns it into a blob to append to formData
     function dataURItoBlob(dataURI) {
-        // needs refactoring - this is the same code as in gif.js
         // convert base64/URLEncoded data component to raw binary data held in a string
         var byteString;
         if (dataURI.split(',')[0].indexOf('base64') >= 0) {
@@ -33,9 +37,11 @@ angular.module('flipbookApp')
             ia[i] = byteString.charCodeAt(i);
         }
 
+        // woot - we've got a blob now!
         return new Blob([ia], {type:mimeString});
     }
 
+    // take the image from the canvas and save it as a 'frame' of a future gif
     this.saveFrame = function($event){
       // take canvas data and extract dataURL
       var dataURL = canvas.toDataURL();
@@ -53,7 +59,7 @@ angular.module('flipbookApp')
       console.log(user);
       console.log(savedImages.images);
 
-      // ajax request - send file to images url
+      // ajax post request - send file to images url
       $http.post(uploadUrl, fd, {
         // Angular’s default transformRequest function will try to serialize our
         // FormData object, so we override it with the identity function to leave
@@ -68,10 +74,10 @@ angular.module('flipbookApp')
             'Content-Type': undefined,
             Authorization: 'Token token=' + user.token,
           }
-      }).success(function(data){
+      }).success(function(savedFrameData){
         // woot. file saved - add it to the pile and clear the canvas!
-        savedImages.images.push(data.file);
-        console.log(data.file.location);
+        savedImages.images.push(savedFrameData.file);
+        console.log(savedFrameData.file.location);
         console.log(savedImages.images);
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.fillStyle = "#FFFFFF";

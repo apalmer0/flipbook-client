@@ -4,7 +4,7 @@
  * @ngdoc directive
  * @name flipbookApp.directive:sketch
  * @description
- * # sketch
+ * controls the actual sketching on the canvas
  */
 angular.module('flipbookApp')
   .directive('sketch', function () {

@@ -37,10 +37,6 @@ draft of that idea.
 
 Things I would do with more time:
 
--   Refactor my code. It's pretty apparent that I taught myself
-  Angular for this project. Towards the end I began to understand
-  the framework better and realized how a lot of code was misplaced,
-  so I'd like to go back and clean that up.
 -   It'd be cool if a user could select an
 image to sketch on rather than uploading their own. I'd like to add
 that feature and create a 'gallery' from which a user
@@ -57,9 +53,9 @@ to email/post/whatever their GIFs to their friends.
 
 ## Live Screenshot
 
-**Homepage**
+**Login Page**
 
-![Homepage experience](app/images/screenshot_homepage.png)
+![Login experience](app/images/screenshot_homepage.png)
 
 **Creating a GIF**
 
